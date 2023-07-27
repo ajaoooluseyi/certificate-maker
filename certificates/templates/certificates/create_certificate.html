@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Certificate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">Create Certificate</h1>
+        <form action="/create/" method="post" class="max-w-md bg-white shadow-md rounded px-8 py-6">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Recipient's Name:</label>
+                <input type="text" id="name" name="name" class="border border-gray-300 rounded px-3 py-2 w-full"
+                    placeholder="Enter the recipient's name" required>
+            </div>
+            <div class="mb-4">
+                <label for="date" class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+                <input type="date" id="date" name="date" class="border border-gray-300 rounded px-3 py-2 w-full"
+                    required>
+            </div>
+            <div class="mb-4">
+                <label for="signature" class="block text-gray-700 text-sm font-bold mb-2">Issuer's Signature:</label>
+                <input type="text" id="signature" name="signature"
+                    class="border border-gray-300 rounded px-3 py-2 w-full" placeholder="Enter the issuer's signature"
+                    required>
+            </div>
+            <div class="mb-4">
+                <label for="details" class="block text-gray-700 text-sm font-bold mb-2">Certificate Details:</label>
+                <textarea id="details" name="details"
+                    class="border border-gray-300 rounded px-3 py-2 w-full h-32"
+                    placeholder="Enter the certificate details" required></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
